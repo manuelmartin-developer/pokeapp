@@ -1,12 +1,15 @@
-import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ReactiveButton from "reactive-button";
-import Card from "../Card";
+import PokemonList from "../PokemonList";
+import axios from "axios";
+import Swal from 'sweetalert2';
+import { pokeContext } from '../../context/pokeContext';
 
 const Input = () => {
   const [input, setInput] = useState("");
-  const [pokemon, setPokemon] = useState({});
+  // const [pokemons, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { pokemons, setPokemon } = useContext(pokeContext);
 
   const inputSearch = useRef(null);
 
@@ -16,6 +19,13 @@ const Input = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+  })
 
   const getData = () => {
     (async () => {
@@ -25,10 +35,14 @@ const Input = () => {
           const resp = await axios.get(
             "https://pokeapi.co/api/v2/pokemon/" + input.toLocaleLowerCase()
           );
-          setPokemon(resp.data);
+          setPokemon([...pokemons, resp.data]);
         }
       } catch (error) {
-        setPokemon({ error });
+        setLoading(false);
+        Toast.fire({
+          icon: 'info',
+          title: 'There is no pokemon with that name'
+        })
       }
     })();
     
@@ -36,12 +50,15 @@ const Input = () => {
 
   useEffect(() => {
     inputSearch.current.value = "";
+    setInput('');
+    inputSearch.current.focus();
+  
     return () => {
       setTimeout(() => {
         setLoading(false) 
       }, 400);
     }
-  }, [pokemon]);
+  }, [pokemons]);
 
   return (
     <>
@@ -65,7 +82,9 @@ const Input = () => {
           />
         </form>
       </section>
-        <Card data={pokemon} />
+      <section className="pokemons">
+          <PokemonList />
+      </section>
     </>
   );
 };

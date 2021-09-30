@@ -2,23 +2,9 @@ import React from "react";
 
 
 const Card = (props) => {
-  if (props.data.error) {
-    return (
-      <section className="card">
-        <img className="card-error" src="sad-pikachu.gif" alt="sad" />
-        <p className="card-title_error">no friends around...</p>
-      </section>
-    );
-  } else {
+
+
     const pokemon = props.data;
-    console.log(props);
-    if(!pokemon.abilities){
-      return (
-        <div>
-          <img className="gif" src="poke.gif" alt="" />
-        </div>
-      )
-    }else{
       return (
         <section className="card">
           <article className="card-title">
@@ -53,8 +39,6 @@ const Card = (props) => {
         </section>
       );
 
-    }
-  }
 }
 
 export default Card
