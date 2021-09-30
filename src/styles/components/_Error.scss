@@ -1,0 +1,34 @@
+.main{
+    display: flex;
+    justify-content: center;
+}
+.error {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: azure;
+  
+   
+
+    &-error {
+      -webkit-filter: sepia(100%);
+      -moz-filter: sepia(100%);
+      -o-filter: sepia(100%);
+      -ms-filter: sepia(100%);
+      filter: sepia(100%);
+  
+      -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadein 3s; /* Firefox < 16 */
+      -ms-animation: fadein 3s; /* Internet Explorer */
+      -o-animation: fadein 3s; /* Opera < 12.1 */
+      animation: fadein 3s;
+    }
+    &-title_error{
+        text-align: center;
+    }
+}
