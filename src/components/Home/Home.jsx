@@ -1,10 +1,12 @@
 import React from "react";
-import Input from '../Input';
+import PokemonList from "../PokemonList";
 
 const Home = () => {
   return (
     <div className="home">
-      <Input />
+      <section className="home-pokemons">
+        <PokemonList />
+      </section>
     </div>
   )
 };

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import PokemonList from "../PokemonList";
 import { getData } from "../../hooks/usePokeAPI";
 import { pokeContext } from "../../context/pokeContext";
 import useDebounce from "../../hooks/useDebounce";
@@ -17,24 +16,26 @@ const Input = () => {
     setInput(event.target.value);
   };
 
- 
   useEffect(() => {
     if (input) {
-
       getData(input).then((results) => {
-
-        if(pokemons.some(pokemon => pokemon.name === results.name)){
-          
+        if (pokemons.some((pokemon) => pokemon.name === results.name)) {
           Toast.fire({
             icon: "info",
             title: "That pokemon is already on our list",
           });
         }
-        
-        if(results.length !== 0 && !pokemons.some(pokemon => pokemon.name === results.name)){
 
-          setPokemon([...pokemons, results])
+        if (
+          results.length !== 0 &&
+          !pokemons.some((pokemon) => pokemon.name === results.name)
+        ) {
+          setPokemon([...pokemons, results]);
           inputSearch.current.value = "";
+          Toast.fire({
+            icon: "success",
+            title: `${input} has been added to list!`,
+          });
           setInput("");
           inputSearch.current.focus();
         }
@@ -54,9 +55,6 @@ const Input = () => {
             onChange={handleChange}
           />
         </form>
-      </section>
-      <section className="pokemons">
-        <PokemonList />
       </section>
     </>
   );

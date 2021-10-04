@@ -1,0 +1,15 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    background-color: #DC221E;
+    overflow-x: hidden;
+
+
+    &-img{
+        height: 30px;
+        margin-left: 5px;
+    }
+}
