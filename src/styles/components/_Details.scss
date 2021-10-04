@@ -1,0 +1,30 @@
+.details{
+
+    &-title{
+
+        font-family: 'pokemon-fill';
+        text-align: center;
+        font-size: 3rem;
+        
+        
+        &-title{
+            margin: 0;
+        }
+        
+        &-type{
+            font-family: 'pokemon';
+            font-size: 1rem;
+        }
+    }
+    
+    &-image {
+        align-self: center;
+        background: rgb(255,204,0);
+        background: radial-gradient(circle, rgba(255,204,0,1) 4%, rgba(220,34,30,1) 66%);
+
+        & > img{
+            height: 300px;
+        }
+    }
+
+}

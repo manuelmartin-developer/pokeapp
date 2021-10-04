@@ -14,10 +14,10 @@ const PokemonList = () => {
 
   if(pokemons.length === 0){
     return(
-        <div>
+        <section>
           <img className="gif" src="/assets/poke.gif" alt="" />
           <h1>No pokemons around...try to catch one!</h1>
-        </div>
+        </section>
     )
   }else {
     return (

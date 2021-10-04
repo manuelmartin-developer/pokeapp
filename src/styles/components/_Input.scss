@@ -5,8 +5,13 @@
 
     &-input{
         margin-bottom: 20px;
-        height: 20px;
+        height: 30px;
         margin-right: 10px;
+        width: 100%;
+        background-color: #ffcc00;
+        font-weight: bold;
+        border: 2px solid #0075BE;
+        border-radius: 5px;
     }
 
     &-button{

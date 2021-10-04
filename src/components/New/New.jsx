@@ -31,15 +31,11 @@ const New = () => {
   return (
     <section className="new">
       <form className="new-form" onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-      <label htmlFor="id">Id</label>
-      <input type="number" {...register("id", { required: true })} />
-      <label htmlFor="name">Name</label>
-      <input {...register("name", { required: true, minLength: 3 })} />
-      <label htmlFor="url">Url</label>
-      <input type="url" {...register("url", { required: true })} />
-      <label htmlFor="typeone">Types</label>
+      <input type="number" placeholder="id" {...register("id", { required: true })} />
+      <input placeholder="name" {...register("name", { required: true, minLength: 3 })} />
+      <input type="url" placeholder="image url" {...register("url", { required: true })} />
       <select {...register("typeone", { required: true })}>
-        <option></option>
+        <option>Select a type</option>
         <option value="bug">Bug</option>
         <option value="dark">Dark</option>
         <option value="dragon">Dragon</option>
@@ -60,7 +56,7 @@ const New = () => {
         <option value="water">Water</option>
       </select>
       <select {...register("typetwo")}>
-      <option></option>
+      <option>Select second type</option>
       <option value="bug">Bug</option>
         <option value="dark">Dark</option>
         <option value="dragon">Dragon</option>
@@ -80,7 +76,7 @@ const New = () => {
         <option value="steel">Steel</option>
         <option value="water">Water</option>
       </select>
-      <input type="submit" />
+      <button type="submit">Add Pokemon</button>
     </form>
     </section>
   );

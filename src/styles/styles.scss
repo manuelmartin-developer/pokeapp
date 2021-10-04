@@ -10,3 +10,14 @@
 @import './components/Error';
 @import './components/PokemonList';
 @import './components/New';
+@import './components/Details';
+
+// Fonts
+@font-face {
+    font-family: 'pokemon';
+    src: local('pokemon'), url(../fonts/pokemon.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'pokemon-fill';
+    src: local('pokemon-fill'), url(../fonts/pokemon_fill.ttf) format('truetype');
+  }

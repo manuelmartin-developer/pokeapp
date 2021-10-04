@@ -6,7 +6,6 @@ import Header from '../src/components/Header';
 import Main from '../src/components/Main';
 
 import '../src/styles/styles.scss';
-import './App.css';
 
 import { pokeContext } from './context/pokeContext';
 import { QueryParamProvider } from 'use-query-params';

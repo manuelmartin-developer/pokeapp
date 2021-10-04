@@ -53,6 +53,7 @@ const Input = () => {
             name="search"
             ref={inputSearch}
             onChange={handleChange}
+            placeholder="Catch your favorite..."
           />
         </form>
       </section>

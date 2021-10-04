@@ -6,12 +6,11 @@ const Card = (props) => {
 
 
     const pokemon = props.data;
-    console.log(pokemon);
 
       return (
         <section className="card">
           <article className="card-title">
-            <p className="card-title-title"><Link to={`/pokemon/${pokemon.id}?name=${pokemon.name}&image=${pokemon.sprites ? pokemon.sprites.other["official-artwork"]["front_default"] : pokemon.url}&typeone=${pokemon.types ? pokemon.types[0].type.name : pokemon.typeone}`}>Home</Link></p>
+            <p className="card-title-title"><Link to={`/pokemon/${pokemon.id}?name=${pokemon.name}&image=${pokemon.sprites ? pokemon.sprites.other["official-artwork"]["front_default"] : pokemon.url}&typeone=${pokemon.types ? pokemon.types[0].type.name : pokemon.typeone}`}>{pokemon ? pokemon.name : ""}</Link></p>
             <p id="id">#{pokemon ? pokemon.id : ""}</p>
           </article>
           <section className="card-info">
